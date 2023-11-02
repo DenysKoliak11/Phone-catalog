@@ -1,8 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { addCart, CartItemProps } from "../../redux/slice/cartSlice";
-import { addFavorite, favoritesItem } from "../../redux/slice/favoritesSlice";
+import { addCart, CartItemType } from "../../redux/slice/cartSlice";
+import {
+  addFavorite,
+  FavoritesItemType,
+} from "../../redux/slice/favoritesSlice";
 import { Link } from "react-router-dom";
 
 interface PhoneBlockProps {
@@ -36,7 +39,7 @@ const PhoneBlock = ({
   );
 
   const onClickAddCart = () => {
-    const item: CartItemProps = {
+    const item: CartItemType = {
       id,
       name,
       image,
@@ -47,7 +50,7 @@ const PhoneBlock = ({
     dispatch(addCart(item));
   };
   const onClickAddFavorites = () => {
-    const item: favoritesItem = {
+    const item: FavoritesItemType = {
       id,
       name,
       fullPrice,

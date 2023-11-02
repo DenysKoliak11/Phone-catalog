@@ -22,7 +22,6 @@ const Phones = () => {
     (state: RootState) => state.filter.currentPage
   );
   const [phones, setPhones] = useState<PhonesType[] | null>(null);
-  // const phones = useSelector((state: RootState) => state.phones.storeItems);
 
   useEffect(() => {
     dispatch(setCategoryId(1));
@@ -61,7 +60,7 @@ const Phones = () => {
     <div className="phones">
       <h1>Mobile phones</h1>
       <span className="phones__total">{phones?.length} models</span>
-      <Sort />
+      {phones && <Sort />}
       <div className="phones__container">{currentItems?.map(mapPhones)}</div>
       {phones && <PaginationPhones sortedPhones={sortedPhones} />}
     </div>

@@ -2,14 +2,14 @@ import React from "react";
 import plus from "../../assets/img_icon/plus.svg";
 import Minus from "../../assets/img_icon/Minus.svg";
 import {
-  CartItemProps,
+  CartItemType,
   removeItem,
   plusCount,
   minusCount,
 } from "../../redux/slice/cartSlice";
 import { useDispatch } from "react-redux";
 
-function CartBlock({ id, name, price, image, count, phoneId }: CartItemProps) {
+function CartBlock({ id, name, price, image, count, phoneId }: CartItemType) {
   const dispatch = useDispatch();
   const removeCartItem = (id: string) => {
     dispatch(removeItem(id));
