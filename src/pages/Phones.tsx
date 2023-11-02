@@ -49,9 +49,7 @@ const Phones = () => {
   const indexOfLastItem = currentPage * itemsOnPage;
   const indexOfFirstItem = indexOfLastItem - itemsOnPage;
   const currentItems = sortedPhones?.slice(indexOfFirstItem, indexOfLastItem);
-  console.log(indexOfLastItem);
-  console.log(indexOfFirstItem);
-  console.log(currentItems);
+
   console.log();
   useEffect(() => {}, [sortProperty, phones]);
 

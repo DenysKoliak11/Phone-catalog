@@ -35,7 +35,10 @@ export const filterSlicer = createSlice({
       state.currentPage = action.payload + 1;
     },
     setPaginationNext(state, action: PayloadAction<number>) {
-      state.currentPage = state.currentPage;
+      state.currentPage =
+        state.currentPage < action.payload
+          ? state.currentPage + 1
+          : state.currentPage;
     },
     setPaginationPrev(state) {
       state.currentPage = state.currentPage === 1 ? 1 : state.currentPage - 1;
