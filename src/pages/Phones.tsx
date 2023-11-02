@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../redux/slice/filterSlice";
 import { PhonesType } from "../types/PhoneType";
 import { RootState } from "../redux/store";
-import { Pagination } from "swiper";
+
 // import { setPhones } from "../redux/slice/phonesSlice";
 
 const Phones = () => {
@@ -29,7 +29,7 @@ const Phones = () => {
     setTimeout(() => {
       setPhones(products);
     }, 1000);
-  }, []);
+  }, [dispatch]);
 
   const sortedPhones = useMemo(() => {
     if (!phones) return null;
@@ -63,7 +63,7 @@ const Phones = () => {
       <span className="phones__total">{phones?.length} models</span>
       <Sort />
       <div className="phones__container">{currentItems?.map(mapPhones)}</div>
-      <PaginationPhones sortedPhones={sortedPhones} />
+      {phones && <PaginationPhones sortedPhones={sortedPhones} />}
     </div>
   );
 };

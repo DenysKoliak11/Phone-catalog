@@ -12,11 +12,20 @@ export interface CartState {
   totalPrice: number;
   cartItems: CartItemProps[];
 }
-const initialState: CartState = {
-  totalPrice: 0,
-  cartItems: [],
+const getCartItemFromLocalStorage = (): CartItemProps[] => {
+  const storedCartItem = localStorage.getItem("cartItems");
+  return storedCartItem ? JSON.parse(storedCartItem) : [];
 };
-export const cartSlicer = createSlice({
+const getTotalPriceFromLocalStorage = (): number => {
+  const storedTotalPrice = localStorage.getItem("totalPrice");
+  return storedTotalPrice ? +storedTotalPrice : 0;
+};
+const initialState: CartState = {
+  totalPrice: getTotalPriceFromLocalStorage(),
+  cartItems: getCartItemFromLocalStorage(),
+};
+
+export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
@@ -27,24 +36,29 @@ export const cartSlicer = createSlice({
         state.cartItems = state.cartItems.filter(
           (obj) => obj.id !== action.payload.id
         );
-        state.totalPrice = calculateTotalPrice(state.cartItems);
       } else {
         state.cartItems.push({
           ...action.payload,
           count: 1,
         });
+
         state.totalPrice = calculateTotalPrice(state.cartItems);
       }
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      localStorage.setItem("totalPrice", state.totalPrice.toString());
     },
     clearItem(state) {
       state.totalPrice = 0;
       state.cartItems = [];
+      localStorage.removeItem("cartItems");
+      localStorage.removeItem("totalPrice");
     },
     removeItem(state, action: PayloadAction<string>) {
-      state.cartItems = state.cartItems.filter(
-        (obj) => obj.id !== action.payload
-      );
+      const id = action.payload;
+      state.cartItems = state.cartItems.filter((obj) => obj.id !== id);
       state.totalPrice = calculateTotalPrice(state.cartItems);
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      localStorage.setItem("totalPrice", state.totalPrice.toString());
     },
     plusCount(state, action: PayloadAction<string>) {
       const id = action.payload;
@@ -53,6 +67,8 @@ export const cartSlicer = createSlice({
         existingCartItem.count += 1;
         state.totalPrice = calculateTotalPrice(state.cartItems);
       }
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      localStorage.setItem("totalPrice", state.totalPrice.toString());
     },
     minusCount(state, action: PayloadAction<string>) {
       const id = action.payload;
@@ -61,6 +77,8 @@ export const cartSlicer = createSlice({
         existingCartItem.count = existingCartItem.count -= 1;
         state.totalPrice = calculateTotalPrice(state.cartItems);
       }
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      localStorage.setItem("totalPrice", state.totalPrice.toString());
     },
   },
 });
@@ -69,5 +87,5 @@ const calculateTotalPrice = (cartItems: CartItemProps[]) => {
   return cartItems.reduce((sum, item) => (sum += item.price * item.count), 0);
 };
 export const { addCart, clearItem, removeItem, minusCount, plusCount } =
-  cartSlicer.actions;
-export default cartSlicer.reducer;
+  cartSlice.actions;
+export default cartSlice.reducer;
