@@ -1,0 +1,16 @@
+@import "./variables";
+@import "./libs/mixins";
+@import "./libs/reset";
+@import "./components/allStyles";
+
+.app {
+  &_container {
+    margin: 0 auto;
+    padding: 15px;
+    width: 100%;
+    max-width: 1150px;
+  }
+}
+.home {
+  padding: 40px 0 80px;
+}

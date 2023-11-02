@@ -1,0 +1,35 @@
+.categories {
+  margin: 80px 0;
+
+  h1 {
+    margin-bottom: 24px;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+  }
+  &__item {
+    &-img {
+      width: 100%;
+      max-width: 368px;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+    &-title {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 26px;
+      color: $primary;
+    }
+    &-count {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 21px;
+      color: $secondary;
+    }
+  }
+}

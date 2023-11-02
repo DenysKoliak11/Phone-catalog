@@ -1,0 +1,46 @@
+.slider {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 16px;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 41px;
+  }
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: default !important;
+  &:not([display]):hover {
+    border: 1px solid $icons;
+  }
+}
+.arrow {
+  height: 32px;
+
+  padding: 7px;
+  border: 1px solid $icons;
+  cursor: pointer;
+  transition: border 0.2s ease;
+
+  &:hover {
+    border: 1px solid $primary;
+  }
+  img {
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+}

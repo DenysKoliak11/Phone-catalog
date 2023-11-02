@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  outline: none;
+  box-sizing: border-box;
+}
+body {
+  background-color: $white;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $primary;
+}
+h1 {
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 41px;
+}

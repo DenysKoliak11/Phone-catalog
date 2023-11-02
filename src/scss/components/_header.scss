@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 1px 0px $elements;
+  &_column {
+    display: flex;
+  }
+  &_logo {
+    margin-left: 24px;
+  }
+  &_button {
+    position: relative;
+    padding: 22px;
+    cursor: pointer;
+    &.active {
+      border-bottom: 3px solid $primary;
+    }
+    &:hover {
+      background-color: $hover-bg;
+      border-bottom: 3px solid $primary;
+    }
+    &--border {
+      border-left: 1px solid $elements;
+      border-right: 1px solid $elements;
+    }
+    img {
+      width: 28px;
+      height: 28px;
+    }
+    span {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      background-color: $red;
+      color: $white;
+      padding: 3px 6px;
+      font-weight: 600;
+      font-size: 9px;
+      line-height: 12px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid $white;
+    }
+  }
+}

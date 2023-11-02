@@ -1,0 +1,60 @@
+.sort {
+  display: flex;
+  margin-top: 40px;
+  & > * + * {
+    margin-left: 16px;
+  }
+  &__dropdown {
+    position: relative;
+    span {
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+      color: $secondary;
+    }
+    &-label {
+      min-width: 128px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: $primary;
+      border: 1px solid $icons;
+      padding: 12px;
+      margin-top: 4px;
+      transition: all 0.1s linear;
+      &:hover {
+        border-color: $primary;
+      }
+      &.active {
+        border: 1px solid $primary;
+
+        img {
+          transform: rotate(178deg);
+        }
+      }
+    }
+    &-popup {
+      position: absolute;
+      width: 100%;
+      background-color: $white;
+      ul {
+        border: 1px solid $elements;
+        box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+        margin-top: 4px;
+        li {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 21px;
+          color: $secondary;
+          padding: 6px 12px;
+          &:hover {
+            background-color: $hover-bg;
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

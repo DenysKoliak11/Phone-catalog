@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Favorites from "./pages/Favorites";
+import Cart from "./pages/Cart";
+import Phones from "./pages/Phones";
+import Footer from "./components/Footer";
+
+import Page from "./constant/Page";
+import "./scss/App.scss";
+import DescriptionPhone from "./pages/DescriptionlPhone";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <div className="app_container">
+        <Routes>
+          <Route path={Page.Home} element={<Home />} />
+          <Route path={Page.Favorites} element={<Favorites />} />
+          <Route path={Page.Cart} element={<Cart />} />
+          <Route path={Page.Phones} element={<Phones />} />
+          <Route path="/phone/:name" element={<DescriptionPhone />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }

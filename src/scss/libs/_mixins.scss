@@ -1,0 +1,106 @@
+@mixin for-desktop-up {
+  @media (min-width: 1136px) {
+    @content;
+  }
+}
+
+@mixin for-mobile-up {
+  @media (min-width: 577px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-up {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-down {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-down {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+
+@mixin for-mobile-down {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin hover-supported {
+  @media (min-width: 768px) {
+    &:hover {
+      @content
+    }
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 0 none;
+    box-shadow: 0 0 0 2px #000000, 0 0 0 3px #ffffff;
+    border-radius: 2px;
+  }
+}
+
+@mixin no-focus-visible {
+  &:focus-visible {
+    outline: 0 none;
+    box-shadow: none;
+  }
+}
+
+@mixin hamburger($left, $top) {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: $top;
+  left: $left;
+  transition-duration: 0.5s;
+}
+
+@mixin hamb-icon($height, $width) {
+  transition-duration: 0.5s;
+  position: relative;
+  height: $height;
+  width: $width;
+}
+
+@mixin hamb-icon-before($height, $width, $top) {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: $width;
+  height: $height;
+  content: "";
+  top: $top;
+  border-radius: 4px;
+}
+
+@mixin hamb-icon-after($height, $width, $top) {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: $width;
+  height: $height;
+  content: "";
+  top: $top;
+  border-radius: 4px;
+}
+
+/*** Styles added to fix the issue with zoom in on iphone ***/
+/* device-aspect-ratio: 2/3 - iPhone < 5 */
+/* device-aspect-ratio: 40/71 - iPhone 5, 5C, 5S, iPod Touch 5g */
+/* device-aspect-ratio: 375/667 - iPhone 6, iPhone 6s, iPhone 7 portrait/landscape */
+/* device-aspect-ratio: 9/16 - iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus portrait/landscape */
+@mixin disable-input-zoom {
+  @media screen and (device-aspect-ratio: 2/3), screen and (device-aspect-ratio: 40/71), screen and (device-aspect-ratio: 375/667), screen and (device-aspect-ratio: 9/16) {
+    @content;
+  }
+}

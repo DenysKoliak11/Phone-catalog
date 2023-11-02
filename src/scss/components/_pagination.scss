@@ -1,0 +1,58 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+  &-item {
+    display: flex;
+    gap: 8px;
+  }
+  &-btn {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    border: 1px solid $icons;
+    background-color: inherit;
+    cursor: pointer;
+
+    transition: border 0.2s ease;
+    &:hover {
+      border: 1px solid $primary;
+    }
+    &.active {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+  &-prev,
+  &-next {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    border: 1px solid $icons;
+    cursor: pointer;
+    transition: border 0.2s ease;
+    &:hover {
+      border: 1px solid $primary;
+    }
+    &.disable {
+      opacity: 0.5;
+      cursor: default !important;
+      &:not([display]):hover {
+        border: 1px solid $icons;
+      }
+    }
+    img {
+      display: block;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

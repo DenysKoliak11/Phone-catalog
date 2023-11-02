@@ -1,0 +1,50 @@
+.footer {
+  border-top: 1px solid $elements;
+  &__container {
+    margin: 0 auto;
+    padding: 30px 15px;
+    width: 100%;
+    max-width: 1150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__content {
+    width: 100%;
+    max-width: 290px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 11px;
+      color: $secondary;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    span {
+      color: $secondary;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+      margin-right: 16px;
+      transition: color 0.3s ease;
+    }
+    &:hover {
+      span {
+        color: $primary;
+      }
+      .arrow {
+        border: 1px solid #313237;
+      }
+    }
+  }
+}

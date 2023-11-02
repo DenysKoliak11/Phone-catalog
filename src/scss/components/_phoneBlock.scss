@@ -1,0 +1,97 @@
+.phone {
+  max-width: 280px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid $elements;
+  padding: 24px;
+  &:hover {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  &__img {
+    padding: 0 30px;
+    width: 100%;
+    height: 208px;
+    margin-bottom: 30px;
+    display: block;
+  }
+  &__name {
+    height: 40px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $primary;
+    margin-bottom: 8px;
+  }
+  &__price {
+    font-size: 22px;
+    line-height: 140%;
+    margin-bottom: 6px;
+    strong {
+      font-weight: 600;
+      margin-right: 8px;
+      color: $primary;
+    }
+    span {
+      font-size: 22px;
+      line-height: 28px;
+      text-decoration-line: line-through;
+      color: $secondary;
+    }
+  }
+  &__details {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    border-top: 1px solid $elements;
+    padding: 8px 0 16px;
+    span {
+      color: $secondary;
+    }
+  }
+  .details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+
+    .cart__btn {
+      width: 100%;
+      max-width: 160px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: center;
+      color: $white;
+      background-color: $primary;
+      padding: 10px 0;
+      border: none;
+      &:hover {
+        box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.26);
+      }
+      &.active {
+        color: $green;
+        border: 1px solid $elements;
+        background-color: $white;
+      }
+    }
+    .favorites__btn {
+      padding: 12px;
+      margin-left: 10px;
+      border: 1px solid $elements;
+      background-color: $white;
+
+      &.active {
+        path {
+          stroke: $red;
+          fill: $red;
+        }
+      }
+    }
+  }
+}
