@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-type sortBy = {
+type SortByType = {
   sortName: string;
   sortProperty: string;
 };
 interface FilterState {
   categoryId: number;
   searchValue: string;
-  sortBy: sortBy;
+  sortBy: SortByType;
   itemsOnPage: number;
   currentPage: number;
 }
@@ -17,7 +17,7 @@ const initialState: FilterState = {
   itemsOnPage: 16,
   currentPage: 1,
 };
-export const filterSlicer = createSlice({
+export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
@@ -25,7 +25,7 @@ export const filterSlicer = createSlice({
       state.categoryId = action.payload;
       state.searchValue = "";
     },
-    setSort(state, action: PayloadAction<sortBy>) {
+    setSort(state, action: PayloadAction<SortByType>) {
       state.sortBy = action.payload;
     },
     setItemsOnPage(state, action: PayloadAction<number>) {
@@ -57,5 +57,5 @@ export const {
   setPagination,
   setPaginationPrev,
   setPaginationNext,
-} = filterSlicer.actions;
-export default filterSlicer.reducer;
+} = filterSlice.actions;
+export default filterSlice.reducer;

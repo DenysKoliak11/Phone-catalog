@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API from "../network/API";
 import { FlexContainer } from "../styles/components/FlexContainer";
-import { IPhoneType } from "../types/PhoneType";
+import { IPhoneType } from "../types/AllType";
 import { PrimaryTextSpan } from "../styles/components/PrimaryTextSpan";
 import SelectorCapacity from "../components/Description/SelectorCapacity";
 import SelectorColor from "../components/Description/SelectorColor";

@@ -4,6 +4,7 @@
 @import "./components/allStyles";
 
 .app {
+  min-height: 100vh;
   &_container {
     margin: 0 auto;
     padding: 15px;

@@ -1,17 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { CartItemType, CartState } from "../../types/AllType";
 
-export type CartItemType = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  count: number;
-  phoneId: string;
-};
-export interface CartState {
-  totalPrice: number;
-  cartItems: CartItemType[];
-}
 const getCartItemFromLocalStorage = (): CartItemType[] => {
   const storedCartItem = localStorage.getItem("cartItems");
   return storedCartItem ? JSON.parse(storedCartItem) : [];

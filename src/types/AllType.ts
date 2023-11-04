@@ -18,6 +18,9 @@ export type SlidePhones = {
   year: number;
   image: string;
 };
+export interface SliderPropsType {
+  phones: SlidePhones[];
+}
 export type PhonesType = {
   id: string;
   category: string;
@@ -53,3 +56,17 @@ export type IPhoneType = {
   zoom: string;
   cell: string[];
 };
+
+export type CartItemType = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  count: number;
+  phoneId: string;
+};
+
+export interface CartState {
+  totalPrice: number;
+  cartItems: CartItemType[];
+}

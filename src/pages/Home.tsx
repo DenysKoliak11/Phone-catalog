@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from "react";
 import Carousel from "../components/Carousel/Carousel";
-import Slider from "../components/Slider/Slider";
+import SliderHotPrice from "../components/Slider/SliderHotPrice";
+import SliderNewModels from "../components/Slider/SliderNewModels";
 import Categories from "../components/Categories/Categories";
 import { useDispatch } from "react-redux";
 import { setCategoryId } from "../redux/slice/filterSlice";
@@ -26,9 +27,9 @@ const Home = () => {
     <section className="home">
       <Carousel />
 
-      <Slider phones={getHotPriceProducts}>Hot price</Slider>
+      <SliderHotPrice phones={getHotPriceProducts} />
       <Categories />
-      <Slider phones={getNewProducts}>Brand new models</Slider>
+      <SliderNewModels phones={getNewProducts} />
     </section>
   );
 };

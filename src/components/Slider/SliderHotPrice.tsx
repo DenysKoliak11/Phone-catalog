@@ -1,25 +1,22 @@
 import React from "react";
 import PhoneBlock from "../PhoneBlock/PhoneBlock";
-import ArrowButton from "../ArrowButton/ArrowButton";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper";
-import { SlidePhones } from "../../types/PhoneType";
+import { Navigation } from "swiper";
+
+import { SliderPropsType } from "../../types/AllType";
 import "swiper/css";
 
-interface SliderProps {
-  children: string;
-  phones: SlidePhones[];
-}
-const Slider = ({ children, phones }: SliderProps) => {
+const SliderHotPrice = ({ phones }: SliderPropsType) => {
   return (
     <div className="slider">
       <div className="slider__top">
-        <h1>{children}</h1>
+        <h1>Hot price</h1>
         <div className="slider__buttons">
-          <div className="arrow arrow-button-prev">
+          <div className="arrow arrow-prev">
             <img src="/_new/img/Arrow-Light.svg" alt="arrow" />
           </div>
-          <div className="arrow arrow-button-next">
+          <div className="arrow arrow-next">
             <img src="/_new/img/Arrow-Right.svg" alt="arrow" />
           </div>
         </div>
@@ -45,8 +42,8 @@ const Slider = ({ children, phones }: SliderProps) => {
           },
         }}
         navigation={{
-          nextEl: ".arrow-button-next",
-          prevEl: ".arrow-button-prev",
+          nextEl: ".arrow-next",
+          prevEl: ".arrow-prev",
         }}
         modules={[Navigation]}
       >
@@ -69,4 +66,4 @@ const Slider = ({ children, phones }: SliderProps) => {
     </div>
   );
 };
-export default Slider;
+export default SliderHotPrice;

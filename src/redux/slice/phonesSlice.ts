@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { PhonesType } from "../../types/PhoneType";
+import { PhonesType } from "../../types/AllType";
 interface PhonesItemsType {
   storeItems: PhonesType[] | null;
 }

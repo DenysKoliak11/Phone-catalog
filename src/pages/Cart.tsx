@@ -22,33 +22,44 @@ const Cart = () => {
   useEffect(() => {
     dispatch(setCategoryId(5));
   }, []);
+
+  const renderCartContent = () => {
+    if (cartItems.length > 0) {
+      return (
+        <div className="cart-container">
+          <div className="cart-item">
+            {cartItems.map((obj) => (
+              <CartBlock
+                key={obj.name}
+                id={obj.id}
+                name={obj.name}
+                price={obj.price}
+                image={obj.image}
+                count={obj.count}
+                phoneId={obj.phoneId}
+              />
+            ))}
+          </div>
+          <div className="cart-totalPrice">
+            <strong>${totalPrice}</strong>
+            <span>Total for {cartItems.length} items</span>
+            <button onClick={onClickClear}>Checkout</button>
+          </div>
+        </div>
+      );
+    } else {
+      return <CartEmpty />;
+    }
+  };
+
   return (
     <div className="cart">
       <div className="cart-btn_back" onClick={goBack}>
         <img src={ArrowLeft} alt="" />
         <span>Back</span>
       </div>
-      <h1 className="cart-title">Cart</h1>
-      <div className="cart-container">
-        <div className="cart-item">
-          {cartItems.map((obj) => (
-            <CartBlock
-              key={obj.name}
-              id={obj.id}
-              name={obj.name}
-              price={obj.price}
-              image={obj.image}
-              count={obj.count}
-              phoneId={obj.phoneId}
-            />
-          ))}
-        </div>
-        <div className="cart-totalPrice">
-          <strong>${totalPrice}</strong>
-          <span>Total for {cartItems.length} items</span>
-          <button onClick={onClickClear}>Checkout</button>
-        </div>
-      </div>
+      {cartItems.length > 0 && <h1 className="cart-title">Cart</h1>}
+      {renderCartContent()}
     </div>
   );
 };

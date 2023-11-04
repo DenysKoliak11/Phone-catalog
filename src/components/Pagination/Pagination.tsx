@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
-import { PhonesType } from "../../types/PhoneType";
+import { PhonesType } from "../../types/AllType";
 import {
   setPagination,
   setPaginationNext,

@@ -5,7 +5,7 @@ import PhoneBlock from "../components/PhoneBlock/PhoneBlock";
 import PaginationPhones from "../components/Pagination/Pagination";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../redux/slice/filterSlice";
-import { PhonesType } from "../types/PhoneType";
+import { PhonesType } from "../types/AllType";
 import { RootState } from "../redux/store";
 
 // import { setPhones } from "../redux/slice/phonesSlice";

@@ -2,7 +2,7 @@ import React from "react";
 import { CapacitySelectorItem } from "../../styles/components/CapacitySelectorItem";
 import { FlexContainer } from "../../styles/components/FlexContainer";
 import { PrimaryTextSpan } from "../../styles/components/PrimaryTextSpan";
-import { IPhoneType } from "../../types/PhoneType";
+import { IPhoneType } from "../../types/AllType";
 interface typeProps {
   phoneInfo: IPhoneType;
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FlexContainer } from "../../styles/components/FlexContainer";
-import { IPhoneType } from "../../types/PhoneType";
+import { IPhoneType } from "../../types/AllType";
 import { ImageSelector } from "../../styles/components/ImageSelectorItem";
 interface typeProps {
   phoneInfo: IPhoneType;

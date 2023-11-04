@@ -1,4 +1,4 @@
-import { IPhoneType } from "../types/PhoneType";
+import { IPhoneType } from "../types/AllType";
 
 class API {
   getPhoneInfo = async (name: string): Promise<IPhoneType | null> => {

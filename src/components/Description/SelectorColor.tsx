@@ -1,5 +1,5 @@
 import React from "react";
-import { IPhoneType } from "../../types/PhoneType";
+import { IPhoneType } from "../../types/AllType";
 import { ModelColorEnum, ColorsInfo } from "../../constant/ModelColors";
 import { ColorSelectorItem } from "../../styles/components/ColorSelectorItem";
 import { FlexContainer } from "../../styles/components/FlexContainer";
