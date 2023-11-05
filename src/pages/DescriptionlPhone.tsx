@@ -7,6 +7,8 @@ import { PrimaryTextSpan } from "../styles/components/PrimaryTextSpan";
 import SelectorCapacity from "../components/Description/SelectorCapacity";
 import SelectorColor from "../components/Description/SelectorColor";
 import SelectorImage from "../components/Description/SelectorImage";
+import DescriptionAbout from "../components/Description/DescriptionAbout";
+import DescriptionTechSpecs from "../components/Description/DescriptionTechSpecs";
 import { useDispatch } from "react-redux";
 import { setCategoryId } from "../redux/slice/filterSlice";
 import ArrowLeft from "../assets/img_icon/Arrow-Light.svg";
@@ -28,7 +30,7 @@ const DescriptionPhone = () => {
         if (info !== null) {
           setPhoneInfo(info);
         } else {
-          // redirect to 404
+          alert("Ошибка");
         }
       })();
     }
@@ -79,148 +81,8 @@ const DescriptionPhone = () => {
         justifyContent="space-between"
         margin="80px 0"
       >
-        <FlexContainer maxWidth="560px" width="100%" flexDirection="column">
-          <PrimaryTextSpan
-            fontSize="22px"
-            fontWeight={700}
-            padding="0 0 16px 0"
-            borderBottom="1px solid #E2E6E9"
-            width="100%"
-            marginBottom="32px"
-          >
-            About
-          </PrimaryTextSpan>
-          {phoneInfo?.description.map((obj, index) => (
-            <FlexContainer
-              key={index}
-              flexDirection="column"
-              marginBottom="32px"
-            >
-              <PrimaryTextSpan
-                fontWeight={600}
-                marginBottom="16px"
-                fontSize="20px"
-              >
-                {obj.title}
-              </PrimaryTextSpan>
-              {obj?.text.map((text) => (
-                <PrimaryTextSpan key={text} marginBottom="20px" color="#89939A">
-                  {text}
-                </PrimaryTextSpan>
-              ))}
-            </FlexContainer>
-          ))}
-        </FlexContainer>
-        <FlexContainer maxWidth="520px" width="100%" flexDirection="column">
-          <PrimaryTextSpan
-            fontSize="22px"
-            fontWeight={700}
-            padding="0 0 16px 0"
-            borderBottom="1px solid #E2E6E9"
-            width="100%"
-            marginBottom="26px"
-          >
-            Tech specs
-          </PrimaryTextSpan>
-          <FlexContainer flexDirection="column">
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Screen
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.screen}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Resolution
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.resolution}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Processor
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.processor}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                RAM
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.ram}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Built in memory
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.capacity}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Camera
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.camera}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Zoom
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.zoom}
-              </PrimaryTextSpan>
-            </FlexContainer>
-            <FlexContainer justifyContent="space-between" marginBottom="8px">
-              <PrimaryTextSpan
-                fontSize="14px"
-                lineHeight="21px"
-                color="#89939A"
-              >
-                Cell
-              </PrimaryTextSpan>
-              <PrimaryTextSpan fontSize="14px" color="#313237" fontWeight={600}>
-                {phoneInfo?.cell.join(", ")}
-              </PrimaryTextSpan>
-            </FlexContainer>
-          </FlexContainer>
-        </FlexContainer>
+        <DescriptionAbout descriptionInfo={phoneInfo?.description || []} />
+        <DescriptionTechSpecs phoneInfo={phoneInfo} />
       </FlexContainer>
     </FlexContainer>
   );

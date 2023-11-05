@@ -2,24 +2,14 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { addCart } from "../../redux/slice/cartSlice";
-import { CartItemType } from "../../types/AllType";
 import {
-  addFavorite,
+  CartItemType,
   FavoritesItemType,
-} from "../../redux/slice/favoritesSlice";
+  PhoneBlockPropsType,
+} from "../../types/AllType";
+import { addFavorite } from "../../redux/slice/favoritesSlice";
 import { Link } from "react-router-dom";
 
-interface PhoneBlockProps {
-  id: string;
-  name: string;
-  fullPrice: number;
-  price: number;
-  screen: string;
-  capacity: string;
-  ram: string;
-  image: string;
-  phoneId: string;
-}
 const PhoneBlock = ({
   id,
   name,
@@ -30,7 +20,7 @@ const PhoneBlock = ({
   ram,
   image,
   phoneId,
-}: PhoneBlockProps) => {
+}: PhoneBlockPropsType) => {
   const dispatch = useDispatch();
   const favoritesItem = useSelector((state: RootState) =>
     state.favorites.itemFavorites.find((item) => item.id === id)

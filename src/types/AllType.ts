@@ -36,6 +36,17 @@ export type PhonesType = {
   year: number;
   image: string;
 };
+export interface PhoneBlockPropsType {
+  id: string;
+  name: string;
+  fullPrice: number;
+  price: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+  image: string;
+  phoneId: string;
+}
 export type IPhoneType = {
   id: string;
   namespaceId: string;
@@ -69,4 +80,20 @@ export type CartItemType = {
 export interface CartState {
   totalPrice: number;
   cartItems: CartItemType[];
+}
+
+export type FavoritesItemType = {
+  id: string;
+  name: string;
+  fullPrice: number;
+  price: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+  image: string;
+  phoneId: string;
+};
+
+export interface FavoritesStateType {
+  itemFavorites: FavoritesItemType[];
 }

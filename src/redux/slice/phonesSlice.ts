@@ -11,8 +11,7 @@ export const phonesSlice = createSlice({
   initialState,
   reducers: {
     setPhones(state, action: PayloadAction<PhonesType[]>) {
-      state.storeItems = action.payload;
-      console.log(action.payload);
+      state.storeItems = [...action.payload];
     },
   },
 });

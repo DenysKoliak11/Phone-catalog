@@ -3,6 +3,7 @@ import { CapacitySelectorItem } from "../../styles/components/CapacitySelectorIt
 import { FlexContainer } from "../../styles/components/FlexContainer";
 import { PrimaryTextSpan } from "../../styles/components/PrimaryTextSpan";
 import { IPhoneType } from "../../types/AllType";
+import { SelectedColorBorder } from "../../styles/components/SelectedColorBorder";
 interface typeProps {
   phoneInfo: IPhoneType;
 }
@@ -25,19 +26,22 @@ const SelectorCapacity = ({ phoneInfo }: typeProps) => {
       </PrimaryTextSpan>
       <FlexContainer gap="10px">
         {phoneInfo?.capacityAvailable?.map((capacity: string) => (
-          <CapacitySelectorItem
+          <SelectedColorBorder
             key={capacity}
-            to={`/phone/${
-              phoneInfo.namespaceId
-            }-${capacity.toLocaleLowerCase()}-${phoneInfo.color}`}
-            color={capacity === phoneInfo.capacity ? "#fff" : "#313237"}
             backgroundColor={
               capacity === phoneInfo.capacity ? "#313237" : "#fff"
             }
-            padding="7px 8px"
           >
-            {capacity}
-          </CapacitySelectorItem>
+            <CapacitySelectorItem
+              to={`/phone/${
+                phoneInfo.namespaceId
+              }-${capacity.toLocaleLowerCase()}-${phoneInfo.color}`}
+              color={capacity === phoneInfo.capacity ? "#fff" : "#313237"}
+              padding="7px 8px"
+            >
+              {capacity}
+            </CapacitySelectorItem>
+          </SelectedColorBorder>
         ))}
       </FlexContainer>
     </FlexContainer>

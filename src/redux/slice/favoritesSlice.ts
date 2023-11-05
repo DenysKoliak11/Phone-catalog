@@ -1,25 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export type FavoritesItemType = {
-  id: string;
-  name: string;
-  fullPrice: number;
-  price: number;
-  screen: string;
-  capacity: string;
-  ram: string;
-  image: string;
-  phoneId: string;
-};
-
-interface favoritesState {
-  itemFavorites: FavoritesItemType[];
-}
+import { FavoritesStateType, FavoritesItemType } from "../../types/AllType";
 const getFavoritesItemFromLocalStorage = (): FavoritesItemType[] => {
   const storedFavoritesItem = localStorage.getItem("itemFavorites");
   return storedFavoritesItem ? JSON.parse(storedFavoritesItem) : [];
 };
-const initialState = {
+const initialState: FavoritesStateType = {
   itemFavorites: getFavoritesItemFromLocalStorage(),
 };
 export const favoritesSlicer = createSlice({

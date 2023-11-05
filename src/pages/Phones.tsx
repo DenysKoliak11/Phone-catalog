@@ -7,8 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategoryId } from "../redux/slice/filterSlice";
 import { PhonesType } from "../types/AllType";
 import { RootState } from "../redux/store";
-
-// import { setPhones } from "../redux/slice/phonesSlice";
+import { setPhones } from "../redux/slice/phonesSlice";
 
 const Phones = () => {
   const dispatch = useDispatch();
@@ -21,13 +20,13 @@ const Phones = () => {
   const currentPage = useSelector(
     (state: RootState) => state.filter.currentPage
   );
-  const [phones, setPhones] = useState<PhonesType[] | null>(null);
+  const phones = useSelector((state: RootState) => state.phones.storeItems);
 
   useEffect(() => {
     dispatch(setCategoryId(1));
     setTimeout(() => {
-      setPhones(products);
-    }, 1000);
+      dispatch(setPhones(products));
+    }, 500);
   }, [dispatch]);
 
   const sortedPhones = useMemo(() => {

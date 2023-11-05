@@ -13,12 +13,10 @@ const Home = () => {
     return [...product].sort(
       (a, b) => b.fullPrice - b.price - (a.fullPrice - a.price)
     );
-  }, [product]);
+  }, []);
   const getNewProducts = useMemo(() => {
     return [...product].sort((a, b) => b.year - a.year);
-  }, [product]);
-  console.log(getHotPriceProducts);
-  console.log(getNewProducts);
+  }, []);
 
   useEffect(() => {
     dispatch(setCategoryId(0));
