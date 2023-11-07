@@ -8,6 +8,7 @@ import { setCategoryId } from "../redux/slice/filterSlice";
 import { PhonesType } from "../types/AllType";
 import { RootState } from "../redux/store";
 import { setPhones } from "../redux/slice/phonesSlice";
+import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 const Phones = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,6 @@ const Phones = () => {
   const indexOfFirstItem = indexOfLastItem - itemsOnPage;
   const currentItems = sortedPhones?.slice(indexOfFirstItem, indexOfLastItem);
 
-  console.log();
   useEffect(() => {}, [sortProperty, phones]);
 
   const mapPhones = (phone: PhonesType) => (
@@ -57,6 +57,7 @@ const Phones = () => {
 
   return (
     <div className="phones">
+      <Breadcrumbs />
       <h1>Mobile phones</h1>
       <span className="phones__total">{phones?.length} models</span>
       {phones && <Sort />}

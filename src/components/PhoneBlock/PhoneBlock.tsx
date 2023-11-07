@@ -56,7 +56,7 @@ const PhoneBlock = ({
   };
   return (
     <div className="phone">
-      <Link to={`/phone/${phoneId}`}>
+      <Link to={`/phones/${phoneId}`}>
         <img className="phone__img" src={`/_new/${image}`} alt="" />
       </Link>
 
@@ -107,7 +107,6 @@ const PhoneBlock = ({
               fill="#fff"
               stroke="#313237"
             />
-            Í
           </svg>
         </button>
       </div>

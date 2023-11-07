@@ -20,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(setCategoryId(0));
-  }, []);
+  }, [dispatch]);
   return (
     <section className="home">
       <Carousel />

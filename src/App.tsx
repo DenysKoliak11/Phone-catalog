@@ -22,7 +22,7 @@ function App() {
           <Route path={Page.Favorites} element={<Favorites />} />
           <Route path={Page.Cart} element={<Cart />} />
           <Route path={Page.Phones} element={<Phones />} />
-          <Route path="/phone/:name" element={<DescriptionPhone />} />
+          <Route path="/phones/:name" element={<DescriptionPhone />} />
         </Routes>
       </div>
       <Footer />

@@ -1,15 +1,15 @@
 import React from "react";
 import { CapacitySelectorItem } from "../../styles/components/CapacitySelectorItem";
-import { FlexContainer } from "../../styles/components/FlexContainer";
 import { PrimaryTextSpan } from "../../styles/components/PrimaryTextSpan";
 import { IPhoneType } from "../../types/AllType";
 import { SelectedColorBorder } from "../../styles/components/SelectedColorBorder";
+import { SelectedContainer } from "../../styles/components/SelectedContainer";
 interface typeProps {
   phoneInfo: IPhoneType;
 }
 const SelectorCapacity = ({ phoneInfo }: typeProps) => {
   return (
-    <FlexContainer
+    <SelectedContainer
       flexDirection="column"
       borderBottom="1px solid #E2E6E9"
       padding="0 0 30px"
@@ -24,7 +24,7 @@ const SelectorCapacity = ({ phoneInfo }: typeProps) => {
       >
         Select capacity
       </PrimaryTextSpan>
-      <FlexContainer gap="10px">
+      <SelectedContainer gap="10px">
         {phoneInfo?.capacityAvailable?.map((capacity: string) => (
           <SelectedColorBorder
             key={capacity}
@@ -33,7 +33,7 @@ const SelectorCapacity = ({ phoneInfo }: typeProps) => {
             }
           >
             <CapacitySelectorItem
-              to={`/phone/${
+              to={`/phones/${
                 phoneInfo.namespaceId
               }-${capacity.toLocaleLowerCase()}-${phoneInfo.color}`}
               color={capacity === phoneInfo.capacity ? "#fff" : "#313237"}
@@ -43,8 +43,8 @@ const SelectorCapacity = ({ phoneInfo }: typeProps) => {
             </CapacitySelectorItem>
           </SelectedColorBorder>
         ))}
-      </FlexContainer>
-    </FlexContainer>
+      </SelectedContainer>
+    </SelectedContainer>
   );
 };
 

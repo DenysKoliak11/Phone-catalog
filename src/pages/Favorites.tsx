@@ -3,6 +3,7 @@ import PhoneBlock from "../components/PhoneBlock/PhoneBlock";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { setCategoryId } from "../redux/slice/filterSlice";
+import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 const Favorites = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Favorites = () => {
   }, []);
   return (
     <div className="favorites">
+      <Breadcrumbs />
       <h1>Favourites</h1>
       <span className="favorites__total">{itemFavorites.length} items</span>
       <div className="favorites__container">

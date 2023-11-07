@@ -5,12 +5,13 @@ import { ColorSelectorItem } from "../../styles/components/ColorSelectorItem";
 import { FlexContainer } from "../../styles/components/FlexContainer";
 import { PrimaryTextSpan } from "../../styles/components/PrimaryTextSpan";
 import { SelectedColorBorder } from "../../styles/components/SelectedColorBorder";
+import { SelectedContainer } from "../../styles/components/SelectedContainer";
 interface typeProps {
   phoneInfo: IPhoneType;
 }
 const SelectorColor = ({ phoneInfo }: typeProps) => {
   return (
-    <FlexContainer
+    <SelectedContainer
       flexDirection="column"
       borderBottom="1px solid #E2E6E9"
       padding="0 0 30px"
@@ -23,7 +24,7 @@ const SelectorColor = ({ phoneInfo }: typeProps) => {
       >
         Available colors
       </PrimaryTextSpan>
-      <FlexContainer gap="12px">
+      <SelectedContainer gap="12px">
         {phoneInfo?.colorsAvailable?.map((color: ModelColorEnum) => (
           <SelectedColorBorder
             padding="4px"
@@ -39,15 +40,15 @@ const SelectorColor = ({ phoneInfo }: typeProps) => {
               key={color}
             >
               <ColorSelectorItem
-                to={`/phone/${
+                to={`/phones/${
                   phoneInfo.namespaceId
                 }-${phoneInfo.capacity.toLocaleLowerCase()}-${color}`}
               />
             </SelectedColorBorder>
           </SelectedColorBorder>
         ))}
-      </FlexContainer>
-    </FlexContainer>
+      </SelectedContainer>
+    </SelectedContainer>
   );
 };
 

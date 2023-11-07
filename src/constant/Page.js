@@ -4,7 +4,6 @@ const Page = {
     Cart: "/cart",
     Contact: "/contact",
     Phones: "/phones",
-    FullPhone: "/phone",
     Ordering: "/ordering",
     Tablets: "/tablets",
     Accessories: "/accessories"

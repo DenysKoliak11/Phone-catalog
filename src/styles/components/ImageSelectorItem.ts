@@ -23,7 +23,8 @@ export const ImageSelector = styled.div<ImageSelectorProps>`
   border-color: ${(props) => props.borderColor};
   img {
     display: block;
-    width: 44px;
+    max-width: 44px;
     height: 66px;
+    margin: 0 auto;
   }
 `;
